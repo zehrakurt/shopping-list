@@ -7,7 +7,7 @@ body{
   background-position: center;
  background-image: url('../public/img/unnamed.jpg');
 }
-button{
+.btn-1{
   text-decoration: none;
       color: #fff;
       font-weight: bold;

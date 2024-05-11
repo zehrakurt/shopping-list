@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
 import { RiDeleteBinLine } from "react-icons/ri";
 import Container from 'react-bootstrap/Container';
+import IconButton from '../src/IconButton';
 
 function App() {
   const [productName, setProductName] = useState('');
@@ -82,7 +83,7 @@ function App() {
         ))}
       </Form.Select>
       <div className='bsk-1'>
-      <button className='mb-3' onClick={addProduct}>Ürün Ekle</button>
+      <button className='mb-3 btn-1' onClick={addProduct}>Ürün Ekle</button>
       </div>
       <Table striped bordered hover>
         <thead>
@@ -104,9 +105,9 @@ function App() {
               <td>{categories.find(category => category.id === parseInt(product.category)).name}</td>
               <td>{product.isBought ? 'Satın Alındı' : 'Satın Alınmadı'}</td>
               <td>
-  <RiDeleteBinLine onClick={() => deleteProduct(product.id)} />
-</td>
-
+              <IconButton handleClick={()=>{
+                setProducts(products.filter(filterProduct=>filterProduct.id!==product.id))
+              }}/></td>
             </tr>
           ))}
         </tbody>
